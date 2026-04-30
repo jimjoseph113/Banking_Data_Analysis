@@ -1,0 +1,21 @@
+-- =========================
+-- Banking Data Analysis
+-- =========================
+
+-- 1. Total Transactions
+SELECT SUM(amount) FROM transactions;
+
+-- 2. Top Customers
+SELECT customer_id, SUM(amount)
+FROM transactions
+GROUP BY customer_id;
+
+-- 3. Fraud Detection
+SELECT *
+FROM transactions
+WHERE amount > 4000;
+
+-- 4. Loan Risk Analysis
+SELECT customer_id, balance, loan_amount
+FROM customers
+JOIN loans ON customers.customer_id = loans.customer_id;
